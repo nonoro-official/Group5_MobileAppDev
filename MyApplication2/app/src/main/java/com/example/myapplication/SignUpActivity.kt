@@ -15,6 +15,7 @@ import android.widget.CheckBox
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import java.util.Calendar
+import android.content.Intent
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -99,6 +100,8 @@ class SignUpActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG
                 ).show()
 
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
                 finish()
             }
         }
