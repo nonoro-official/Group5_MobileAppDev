@@ -16,6 +16,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import java.util.Calendar
 import android.content.Intent
+import android.widget.TextView
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -104,6 +105,13 @@ class SignUpActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             }
+        }
+
+        val loginLink = findViewById<TextView>(R.id.login_link)
+
+        loginLink.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 }
