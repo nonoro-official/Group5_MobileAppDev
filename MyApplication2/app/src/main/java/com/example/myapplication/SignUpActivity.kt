@@ -85,12 +85,21 @@ class SignUpActivity : AppCompatActivity() {
             } else if (pass != c_pass) {
                 Toast.makeText(this, "Passwords do not match", Toast.LENGTH_LONG).show()
             } else {
+                val sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+                val editor = sharedPref.edit()
+                editor.putString("email", email)
+                editor.putString("username", user)
+                editor.putString("password", pass)
+                editor.apply()
+
                 Toast.makeText(this, "Sign up successful", Toast.LENGTH_LONG).show()
                 Toast.makeText(
                     this,
                     "Full Name: $name\nUsername: $user\nGender: $gender\nBirthdate: $bday\nEmail: $email\nPassword: $pass",
                     Toast.LENGTH_LONG
                 ).show()
+
+                finish()
             }
         }
     }
