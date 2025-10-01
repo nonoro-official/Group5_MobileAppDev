@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.GridView
+import android.content.Intent
 
 class GalleryActivity : AppCompatActivity() {
 
@@ -24,11 +25,16 @@ class GalleryActivity : AppCompatActivity() {
         val petImages = intArrayOf(R.drawable.ming, R.drawable.dandan, R.drawable.ryan,
             R.drawable.maddison, R.drawable.kylo, R.drawable.bumju)
 
-        val gridView = findViewById<GridView>(R.id.galleryView)
+        val gridView = findViewById<GridView>(R.id.gallery_view)
         val adapter = GridAdapter(this, petTitles, petImages)
-
         gridView.adapter = adapter
 
+        gridView.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(this, ImageDetailActivity::class.java)
+            intent.putExtra("title", petTitles[position])
+            intent.putExtra("image", petImages[position])
+            startActivity(intent)
+        }
 
     }
 }
