@@ -5,8 +5,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.widget.GridView
 
 class GalleryActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -18,8 +20,15 @@ class GalleryActivity : AppCompatActivity() {
         }
 
         val petTitles = arrayOf("Cat on the Rail", "High on Catnip", "Do You Have Games On Your Phone Vibe",
-            "Sleepy Sausage" /*, "Pet 5", "Pet 6"*/)
-        val petImages = intArrayOf(R.drawable.ming, R.drawable.dandan, R.drawable.ryan, R.drawable.maddison)
+            "Sleepy Sausage", "Happy Mama", "Floof in the Corner")
+        val petImages = intArrayOf(R.drawable.ming, R.drawable.dandan, R.drawable.ryan,
+            R.drawable.maddison, R.drawable.kylo, R.drawable.bumju)
+
+        val gridView = findViewById<GridView>(R.id.galleryView)
+        val adapter = GridAdapter(this, petTitles, petImages)
+
+        gridView.adapter = adapter
+
 
     }
 }
