@@ -37,8 +37,10 @@ class LoginActivity : AppCompatActivity() {
         loginSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 emailOrUserField.hint = "Enter Username"
+                loginSwitch.text = "Login with Email"
             } else {
                 emailOrUserField.hint = "Enter Email"
+                loginSwitch.text = "Login with Username"
             }
         }
 
@@ -65,6 +67,9 @@ class LoginActivity : AppCompatActivity() {
 
                 if (loginSuccess) {
                     Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
+
+                    val intent = Intent(this, GalleryActivity::class.java)
+                    startActivity(intent)
                 } else {
                     Toast.makeText(this, "Invalid credentials!", Toast.LENGTH_SHORT).show()
                 }
