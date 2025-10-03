@@ -29,12 +29,15 @@ class GalleryActivity : AppCompatActivity() {
         val adapter = GridAdapter(this, petTitles, petImages)
         gridView.adapter = adapter
 
+        // to full image + details
         gridView.setOnItemClickListener { parent, view, position, id ->
             val intent = Intent(this, ImageDetailActivity::class.java)
             intent.putExtra("title", petTitles[position])
             intent.putExtra("image", petImages[position])
             startActivity(intent)
         }
+
+        // logout
 
     }
 }
