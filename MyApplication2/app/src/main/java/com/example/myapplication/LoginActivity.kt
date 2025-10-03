@@ -37,10 +37,10 @@ class LoginActivity : AppCompatActivity() {
         loginSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 emailOrUserField.hint = "Enter Username"
-                loginSwitch.text = "Login with Email"
+                loginSwitch.text = "Login with Username"
             } else {
                 emailOrUserField.hint = "Enter Email"
-                loginSwitch.text = "Login with Username"
+                loginSwitch.text = "Login with Email"
             }
         }
 
