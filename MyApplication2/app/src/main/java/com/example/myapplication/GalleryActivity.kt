@@ -43,6 +43,17 @@ class GalleryActivity : AppCompatActivity() {
         val petImages = intArrayOf(R.drawable.ming, R.drawable.dandan, R.drawable.ryan,
             R.drawable.maddison, R.drawable.kylo, R.drawable.bumju)
 
+        val petNames = arrayOf("Ming", "Dandan", "Ryan", "Maddison", "Kylo", "Bumju")
+        val petAges = arrayOf("2 years", "1 year", "4 years", "3 years", "5 years", "2 years")
+        val petDescriptions = arrayOf(
+            "A fat cat who loves rails.",
+            "Always high on catnip.",
+            "Ipad kid kitty.",
+            "The sausage likes to get its daily naps.",
+            "Protective mama but super sweet.",
+            "Lurks in the corner, watching everything."
+        )
+
         val gridView = findViewById<GridView>(R.id.gallery_view)
         val adapter = GridAdapter(this, petTitles, petImages)
         gridView.adapter = adapter
@@ -50,7 +61,9 @@ class GalleryActivity : AppCompatActivity() {
         // to full image + details
         gridView.setOnItemClickListener { parent, view, position, id ->
             val intent = Intent(this, ImageDetailActivity::class.java)
-            intent.putExtra("title", petTitles[position])
+            intent.putExtra("name", petNames[position])
+            intent.putExtra("age", petAges[position])
+            intent.putExtra("desc", petDescriptions[position])
             intent.putExtra("image", petImages[position])
             startActivity(intent)
         }
