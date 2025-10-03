@@ -12,7 +12,7 @@ import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.appcompat.app.AppCompatDelegate
 
-class GalleryActivity : AppCompatActivity() {
+class GalleryActivity : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
