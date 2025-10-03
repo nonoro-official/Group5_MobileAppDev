@@ -18,13 +18,21 @@
 
         <TextView
             android:id="@+id/toolbar_title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:text="Pet Gallery"
             android:textSize="30dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"/>
+
+        <Switch
+            android:id="@+id/switchDarkMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:text="🌙"
+            android:textColor="@android:color/white"/>
 
     </androidx.appcompat.widget.Toolbar>
 

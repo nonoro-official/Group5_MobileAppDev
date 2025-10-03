@@ -7,6 +7,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.GridView
 import android.content.Intent
+import android.widget.Switch
+import androidx.appcompat.app.AppCompatDelegate
 
 class GalleryActivity : AppCompatActivity() {
 
@@ -18,6 +20,20 @@ class GalleryActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        // DARK THEME
+        val switchDarkMode = findViewById<Switch>(R.id.switchDarkMode)
+
+        val currentNightMode = AppCompatDelegate.getDefaultNightMode()
+        switchDarkMode.isChecked = (currentNightMode == AppCompatDelegate.MODE_NIGHT_YES)
+
+        switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
         }
 
         val petTitles = arrayOf("Cat on the Rail", "High on Catnip", "Do You Have Games On Your Phone Vibe",
