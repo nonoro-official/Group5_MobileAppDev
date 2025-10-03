@@ -20,11 +20,11 @@ class GridAdapter (
     }
 
     override fun getItem(position: Int): Any? {
-        return pet[position]    // return pet name string at pos
+        return pet[position]
     }
 
     override fun getItemId(position: Int): Long {
-        return position.toLong() // return index of pos
+        return position.toLong()
     }
 
     override fun getView(
@@ -38,7 +38,6 @@ class GridAdapter (
         val imageView = itemView.findViewById<ImageView>(R.id.gallery_image)
         val textView = itemView.findViewById<TextView>(R.id.image_name)
 
-        // set to activity_gallery
         imageView.setImageResource(image[position])
         textView.text = pet[position]
 
