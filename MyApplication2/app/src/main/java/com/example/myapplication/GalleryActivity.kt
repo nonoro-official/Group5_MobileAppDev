@@ -7,9 +7,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.GridView
 import android.content.Intent
+<<<<<<< Updated upstream
 import android.widget.Switch
 import android.widget.ImageButton
 import android.widget.Toast
+=======
+import android.widget.ToggleButton
+>>>>>>> Stashed changes
 import androidx.appcompat.app.AppCompatDelegate
 
 class GalleryActivity : AppCompatActivity() {
@@ -25,12 +29,12 @@ class GalleryActivity : AppCompatActivity() {
         }
 
         // DARK THEME
-        val switchDarkMode = findViewById<Switch>(R.id.switchDarkMode)
+        val toggleDarkMode = findViewById<ToggleButton>(R.id.toggleDarkMode)
 
         val currentNightMode = AppCompatDelegate.getDefaultNightMode()
-        switchDarkMode.isChecked = (currentNightMode == AppCompatDelegate.MODE_NIGHT_YES)
+        toggleDarkMode.isChecked = (currentNightMode == AppCompatDelegate.MODE_NIGHT_YES)
 
-        switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
+        toggleDarkMode.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {

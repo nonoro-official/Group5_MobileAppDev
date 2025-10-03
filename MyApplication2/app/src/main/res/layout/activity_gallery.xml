@@ -42,13 +42,19 @@
             android:contentDescription="Logout"
             app:tint="@android:color/white" />
 
-        <Switch
-            android:id="@+id/switchDarkMode"
+        <ToggleButton
+            android:id="@+id/toggleDarkMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|center_vertical"
-            android:text="🌙"
-            android:textColor="@android:color/white"/>
+            android:layout_gravity="start|center_vertical"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:background="@null"
+            android:textOn="🌙"
+            android:textOff="☀️"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:checked="false"/>
 
     </androidx.appcompat.widget.Toolbar>
 
