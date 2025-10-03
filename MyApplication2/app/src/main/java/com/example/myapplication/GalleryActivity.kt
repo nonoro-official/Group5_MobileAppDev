@@ -38,18 +38,18 @@ class GalleryActivity : MainActivity() {
             }
         }
 
+        // pets
         val petTitles = arrayOf("Cat on the Rail", "High on Catnip", "Do You Have Games On Your Phone Vibe",
-            "Sleepy Sausage", "Happy Mama", "Floof in the Corner")
+            "Soft Sausage", "Happy Mama", "Floof in the Corner")
         val petImages = intArrayOf(R.drawable.ming, R.drawable.dandan, R.drawable.ryan,
             R.drawable.maddison, R.drawable.kylo, R.drawable.bumju)
-
         val petNames = arrayOf("Ming", "Dandan", "Ryan", "Maddison", "Kylo", "Bumju")
-        val petAges = arrayOf("2 years", "1 year", "4 years", "3 years", "5 years", "2 years")
+        val petAges = arrayOf("5 years", "6 months", "6 months", "5 months", "5 years", "2 years")
         val petDescriptions = arrayOf(
             "A fat cat who loves rails.",
             "Always high on catnip.",
             "Ipad kid kitty.",
-            "The sausage likes to get its daily naps.",
+            "The sausage is so soft and warm.",
             "Protective mama but super sweet.",
             "Lurks in the corner, watching everything."
         )
