@@ -7,13 +7,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.GridView
 import android.content.Intent
-<<<<<<< Updated upstream
-import android.widget.Switch
 import android.widget.ImageButton
 import android.widget.Toast
-=======
 import android.widget.ToggleButton
->>>>>>> Stashed changes
 import androidx.appcompat.app.AppCompatDelegate
 
 class GalleryActivity : AppCompatActivity() {
@@ -51,7 +47,7 @@ class GalleryActivity : AppCompatActivity() {
         val adapter = GridAdapter(this, petTitles, petImages)
         gridView.adapter = adapter
 
-        // to full image + details
+        // redirect to full image + details
         gridView.setOnItemClickListener { parent, view, position, id ->
             val intent = Intent(this, ImageDetailActivity::class.java)
             intent.putExtra("title", petTitles[position])
