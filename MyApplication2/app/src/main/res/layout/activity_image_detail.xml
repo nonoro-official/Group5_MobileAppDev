@@ -1,7 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:elevation="4dp" />
+
+    <!-- Pet Image -->
+    <ImageView
+        android:id="@+id/detail_image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="Pet Image" />
+
+    <!-- Pet Name -->
+    <TextView
+        android:id="@+id/detail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pet Name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp" />
+
+    <!-- Pet Age -->
+    <TextView
+        android:id="@+id/detail_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age: 0 years"
+        android:layout_marginTop="4dp" />
+
+    <!-- Pet Description -->
+    <TextView
+        android:id="@+id/detail_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is a description of the pet."
+        android:layout_marginTop="8dp" />
 
 </LinearLayout>
