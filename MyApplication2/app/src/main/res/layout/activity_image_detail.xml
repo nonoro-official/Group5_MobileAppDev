@@ -27,8 +27,9 @@
         <ImageView
             android:id="@+id/detail_image"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:scaleType="centerCrop"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
             android:contentDescription="Pet Image" />
 
         <!-- Pet Name -->
@@ -57,4 +58,14 @@
             android:text="This is a description of the pet."
             android:layout_marginTop="8dp" />
     </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="5"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp" />
+
 </LinearLayout>

@@ -2,7 +2,6 @@ package com.example.myapplication
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.GridView
@@ -39,7 +38,8 @@ class GalleryActivity : MainActivity() {
         }
 
         // pets
-        val petTitles = arrayOf("Cat on the Rail", "High on Catnip", "Do You Have Games On Your Phone Vibe",
+        val petTitles = arrayOf(
+            "Cat on the Rail", "High on Catnip", "Do You Have Games On Your Phone Vibe",
             "Soft Sausage", "Happy Mama", "Floof in the Corner")
         val petImages = intArrayOf(R.drawable.ming, R.drawable.dandan, R.drawable.ryan,
             R.drawable.maddison, R.drawable.kylo, R.drawable.bumju)
