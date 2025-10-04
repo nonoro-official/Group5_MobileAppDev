@@ -38,6 +38,7 @@ class ImageDetailActivity : MainActivity() {
 
         // Seek Bar
         val seekBar = findViewById<SeekBar>(R.id.seekBar)
+
         val petImages = intArrayOf(R.drawable.ming, R.drawable.dandan, R.drawable.ryan,
             R.drawable.maddison, R.drawable.kylo, R.drawable.bumju)
         val petNames = arrayOf("Ming", "Dandan", "Ryan", "Maddison", "Kylo", "Bumju")
@@ -51,10 +52,8 @@ class ImageDetailActivity : MainActivity() {
             "Lurks in the corner, watching everything."
         )
 
-        val clickedName = intent.getStringExtra("name")
-
         seekBar.max = petNames.size - 1
-        seekBar.progress = petNames.indexOf(clickedName).takeIf { it >= 0 } ?: 0
+        seekBar.progress = petNames.indexOf(name).takeIf { it >= 0 } ?: 0
 
         fun updatePet(index: Int) {
             detailName.text = petNames[index]
