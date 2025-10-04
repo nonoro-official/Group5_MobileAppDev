@@ -46,7 +46,7 @@ class ImageDetailActivity : MainActivity() {
         val petDescriptions = arrayOf(
             "A fat cat who loves rails.",
             "Always high on catnip.",
-            "Ipad kid kitty.",
+            "iPad kid kitty.",
             "The sausage is so soft and warm.",
             "Protective mama but super sweet.",
             "Lurks in the corner, watching everything."

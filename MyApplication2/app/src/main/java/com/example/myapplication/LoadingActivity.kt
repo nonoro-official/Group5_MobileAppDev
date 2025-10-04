@@ -7,13 +7,12 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.ProgressBar
 
-class LoadingActivity : AppCompatActivity() {
+class LoadingActivity : MainActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_loading)
 
         val nextActivity = intent.getStringExtra("nextActivity")
-
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
 
         Handler(Looper.getMainLooper()).postDelayed({
