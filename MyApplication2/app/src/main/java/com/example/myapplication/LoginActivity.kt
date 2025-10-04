@@ -16,6 +16,7 @@ import android.graphics.Paint
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import android.widget.Switch
+import android.widget.CheckBox
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +34,16 @@ class LoginActivity : AppCompatActivity() {
         val loginSwitch = findViewById<Switch>(R.id.loginSwitch)
         val emailOrUserField = findViewById<EditText>(R.id.login_email)
         val passField = findViewById<EditText>(R.id.login_password)
+        val login_showPassword = findViewById<CheckBox>(R.id.login_showpass)
+
+        login_showPassword.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                passField.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            } else {
+                passField.transformationMethod = PasswordTransformationMethod.getInstance()
+            }
+            passField.setSelection(passField.text.length)
+        }
 
         loginSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
