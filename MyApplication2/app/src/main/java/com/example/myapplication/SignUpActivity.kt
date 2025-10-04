@@ -101,7 +101,8 @@ class SignUpActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG
                 ).show()
 
-                val intent = Intent(this, LoginActivity::class.java)
+                val intent = Intent(this, LoadingActivity::class.java)
+                intent.putExtra("nextActivity", "Login")
                 startActivity(intent)
                 finish()
             }

@@ -79,7 +79,8 @@ class LoginActivity : AppCompatActivity() {
                 if (loginSuccess) {
                     Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
 
-                    val intent = Intent(this, GalleryActivity::class.java)
+                    val intent = Intent(this, LoadingActivity::class.java)
+                    intent.putExtra("nextActivity", "Gallery")
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "Invalid credentials!", Toast.LENGTH_SHORT).show()
