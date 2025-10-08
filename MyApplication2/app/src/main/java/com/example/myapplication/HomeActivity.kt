@@ -25,17 +25,20 @@ class HomeActivity : AppCompatActivity() {
         val act3Btn = findViewById<Button>(R.id.act3_btn)
 
         act1Btn.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
+            val intent = Intent(this, LoadingActivity::class.java)
+            intent.putExtra("nextActivity", "Sign Up")
             startActivity(intent)
         }
 
         act2Btn.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, LoadingActivity::class.java)
+            intent.putExtra("nextActivity", "Login")
             startActivity(intent)
         }
 
         act3Btn.setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
+            val intent = Intent(this, LoadingActivity::class.java)
+            intent.putExtra("nextActivity", "Menu")
             startActivity(intent)
         }
     }
