@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatDelegate
 class HomeActivity : MainActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_home)
 
 
