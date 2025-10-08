@@ -17,6 +17,7 @@ class LoadingActivity : MainActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             when (nextActivity) {
+                "Home" -> startActivity(Intent(this, HomeActivity::class.java))
                 "Sign Up" -> startActivity(Intent(this, SignUpActivity::class.java))
                 "Login" -> startActivity(Intent(this, LoginActivity::class.java))
                 "Gallery" -> startActivity(Intent(this, GalleryActivity::class.java))

@@ -24,6 +24,14 @@ class HomeActivity : AppCompatActivity() {
         val act2Btn = findViewById<Button>(R.id.act2_btn)
         val act3Btn = findViewById<Button>(R.id.act3_btn)
 
+        val sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+        val isLoggedIn = sharedPref.getBoolean("isLoggedIn", false)
+
+        if (!isLoggedIn) {
+            act3Btn.isEnabled = false
+            act3Btn.alpha = 0.5f
+        }
+
         act1Btn.setOnClickListener {
             val intent = Intent(this, LoadingActivity::class.java)
             intent.putExtra("nextActivity", "Sign Up")
@@ -32,7 +40,7 @@ class HomeActivity : AppCompatActivity() {
 
         act2Btn.setOnClickListener {
             val intent = Intent(this, LoadingActivity::class.java)
-            intent.putExtra("nextActivity", "Login")
+            intent.putExtra("nextActivity", "Gallery")
             startActivity(intent)
         }
 

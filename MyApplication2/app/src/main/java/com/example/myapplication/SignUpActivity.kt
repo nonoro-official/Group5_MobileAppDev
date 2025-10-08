@@ -92,6 +92,7 @@ class SignUpActivity : AppCompatActivity() {
                 editor.putString("email", email)
                 editor.putString("username", user)
                 editor.putString("password", pass)
+                editor.putBoolean("isLoggedIn", true)
                 editor.apply()
 
                 Toast.makeText(this, "Sign up successful", Toast.LENGTH_LONG).show()

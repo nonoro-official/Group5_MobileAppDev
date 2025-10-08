@@ -17,6 +17,7 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import android.widget.Switch
 import android.widget.CheckBox
+import androidx.core.content.edit
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,8 +80,10 @@ class LoginActivity : AppCompatActivity() {
                 if (loginSuccess) {
                     Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
 
+                    sharedPref.edit { putBoolean("isLoggedIn", true) }
+
                     val intent = Intent(this, LoadingActivity::class.java)
-                    intent.putExtra("nextActivity", "Gallery")
+                    intent.putExtra("nextActivity", "Home")
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "Invalid credentials!", Toast.LENGTH_SHORT).show()
