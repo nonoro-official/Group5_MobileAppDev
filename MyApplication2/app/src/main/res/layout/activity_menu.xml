@@ -7,19 +7,43 @@
     android:layout_height="match_parent"
     tools:context=".MenuActivity">
 
-    <TextView
-        android:id="@+id/greeting_text"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="Hello, User!"
-        android:textColor="#723696"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.138"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/greeting_text"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:text="Hello, User!"
+            android:textColor="#723696"
+            android:textSize="30dp"
+            android:gravity="center_vertical" />
+
+        <ImageButton
+            android:id="@+id/logout_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:maxWidth="32dp"
+            android:maxHeight="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/logout"
+            android:contentDescription="Logout"
+            app:tint="#723696" />
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,7 +52,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/greeting_text">
+        app:layout_constraintTop_toBottomOf="@+id/header_layout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -60,7 +84,7 @@
                         android:layout_height="150dp"
                         android:scaleType="centerCrop"
                         android:src="@drawable/coffee" />
-                    
+
                     <TextView
                         android:id="@+id/item_name_1"
                         android:layout_width="match_parent"
@@ -78,7 +102,7 @@
                         android:text="₱120.00"
                         android:textColor="#636363"
                         android:textSize="16sp"/>
-                    
+
                     <Spinner
                         android:id="@+id/size_spinner_1"
                         android:layout_width="match_parent"
@@ -86,7 +110,7 @@
                         android:layout_marginTop="8dp"
                         android:background="@drawable/spinner_background"
                         android:padding="8dp"/>
-                    
+
                     <Button
                         android:id="@+id/add_to_cart_1"
                         android:layout_width="match_parent"
@@ -111,7 +135,7 @@
                 app:cardElevation="4dp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/menu_item_1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -176,7 +200,7 @@
                 app:cardElevation="4dp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/menu_item_2">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -241,7 +265,7 @@
                 app:cardElevation="4dp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/menu_item_3">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -304,8 +328,8 @@
                 android:focusable="true"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
@@ -369,9 +393,9 @@
                 android:focusable="true"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menu_item_5">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -434,9 +458,9 @@
                 android:focusable="true"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menu_item_6">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -499,9 +523,9 @@
                 android:focusable="true"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menu_item_7">
 
                 <LinearLayout
                     android:layout_width="match_parent"
