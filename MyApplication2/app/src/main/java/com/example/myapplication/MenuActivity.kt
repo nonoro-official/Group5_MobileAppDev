@@ -54,10 +54,27 @@ class MenuActivity : AppCompatActivity() {
         greetingText.text = "Hello, $username!"
 
         setupMenuItems()
+
+        // logout
+        val logoutBtn = findViewById<ImageButton>(R.id.logout_btn)
+        logoutBtn.setOnClickListener {
+            Toast.makeText(this, "User Logged Out", Toast.LENGTH_SHORT).show()
+
+            val sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+            val editor = sharedPref.edit()
+            //editor.clear() (this is for when u want to fully clear out the user's data when logging out)
+            editor.apply()
+
+
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun setupMenuItems() {
-        for(i in 1..8) {
+        for(i in 1..menuItems.size) {
             setupMenuItem(i)
         }
     }
@@ -114,6 +131,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun saveToCart(item: String) {
-
+    //payment method here
     }
+
 }
