@@ -2,7 +2,6 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Handler
 import android.os.Looper
 import android.widget.ProgressBar
@@ -18,6 +17,7 @@ class LoadingActivity : MainActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             when (nextActivity) {
                 "Home" -> startActivity(Intent(this, HomeActivity::class.java))
+                "Main Home" -> startActivity(Intent(this, MainHomeActivity::class.java))
                 "Sign Up" -> startActivity(Intent(this, SignUpActivity::class.java))
                 "Login" -> startActivity(Intent(this, LoginActivity::class.java))
                 "Gallery" -> startActivity(Intent(this, GalleryActivity::class.java))

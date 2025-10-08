@@ -112,7 +112,8 @@ class SignUpActivity : AppCompatActivity() {
         val loginLink = findViewById<TextView>(R.id.login_link)
 
         loginLink.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, LoadingActivity::class.java)
+            intent.putExtra("nextActivity", "Login")
             startActivity(intent)
         }
     }

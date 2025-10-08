@@ -34,6 +34,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".MainHomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuActivity" />
     </application>
 

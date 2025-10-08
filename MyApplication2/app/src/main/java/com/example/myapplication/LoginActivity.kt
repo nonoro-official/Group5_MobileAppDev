@@ -80,10 +80,8 @@ class LoginActivity : AppCompatActivity() {
                 if (loginSuccess) {
                     Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
 
-                    sharedPref.edit { putBoolean("isLoggedIn", true) }
-
                     val intent = Intent(this, LoadingActivity::class.java)
-                    intent.putExtra("nextActivity", "Home")
+                    intent.putExtra("nextActivity", "Main Home")
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "Invalid credentials!", Toast.LENGTH_SHORT).show()
