@@ -37,7 +37,14 @@
             android:name=".MainHomeActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuActivity" />
+            android:name=".MenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CartViewerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CheckoutActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -71,6 +71,10 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        val viewCartBtn = findViewById<Button>(R.id.view_cart_btn)
+        viewCartBtn.setOnClickListener {
+            startActivity(Intent(this, CartViewerActivity::class.java))
+        }
     }
 
     private fun setupMenuItems() {
@@ -116,12 +120,15 @@ class MenuActivity : AppCompatActivity() {
             val selectedSize = sizeSpinner.selectedItem as String
             val finalPrice = menuItem.basePrice + (sizePrices[selectedSize] ?: 0.0)
 
-            val cartItem = "${menuItem.name} ($selectedSize) - ₱${"%.2f".format(finalPrice)}"
+            saveToCart(menuItem.name, selectedSize, finalPrice)
 
-            saveToCart(cartItem)
-
-            Toast.makeText(this, "Added to cart: $cartItem", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "Added to cart: ${menuItem.name} ($selectedSize) - ₱${"%.2f".format(finalPrice)}",
+                Toast.LENGTH_SHORT
+            ).show()
         }
+
     }
 
     private fun updatePriceDisplay(priceTextView: TextView, basePrice: Double, size: String) {
@@ -130,8 +137,10 @@ class MenuActivity : AppCompatActivity() {
         priceTextView.text = "₱${"%.2f".format(finalPrice)}"
     }
 
-    private fun saveToCart(item: String) {
-    //payment method here
+    private fun saveToCart(name: String, size: String, price: Double) {
+        val cartItem = CartItem(name, size, price, 1)
+        CartManager.addToCart(cartItem)
     }
+
 
 }
