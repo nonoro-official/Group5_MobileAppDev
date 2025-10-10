@@ -1,22 +1,19 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.GridView
 import android.content.Intent
-import android.widget.Switch
 import android.widget.ImageButton
 import android.widget.Toast
+import android.widget.ToggleButton
 import androidx.appcompat.app.AppCompatDelegate
 
-class GalleryActivity : AppCompatActivity() {
+class GalleryActivity : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_gallery)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -25,12 +22,12 @@ class GalleryActivity : AppCompatActivity() {
         }
 
         // DARK THEME
-        val switchDarkMode = findViewById<Switch>(R.id.switchDarkMode)
+        val toggleDarkMode = findViewById<ToggleButton>(R.id.toggleDarkMode)
 
         val currentNightMode = AppCompatDelegate.getDefaultNightMode()
-        switchDarkMode.isChecked = (currentNightMode == AppCompatDelegate.MODE_NIGHT_YES)
+        toggleDarkMode.isChecked = (currentNightMode == AppCompatDelegate.MODE_NIGHT_YES)
 
-        switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
+        toggleDarkMode.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {
@@ -38,18 +35,18 @@ class GalleryActivity : AppCompatActivity() {
             }
         }
 
+        // pets
         val petTitles = arrayOf("Cat on the Rail", "High on Catnip", "Do You Have Games On Your Phone Vibe",
-            "Sleepy Sausage", "Happy Mama", "Floof in the Corner")
+            "Soft Sausage", "Happy Mama", "Floof in the Corner")
         val petImages = intArrayOf(R.drawable.ming, R.drawable.dandan, R.drawable.ryan,
             R.drawable.maddison, R.drawable.kylo, R.drawable.bumju)
-
         val petNames = arrayOf("Ming", "Dandan", "Ryan", "Maddison", "Kylo", "Bumju")
-        val petAges = arrayOf("2 years", "1 year", "4 years", "3 years", "5 years", "2 years")
+        val petAges = arrayOf("5 years", "6 months", "6 months", "5 months", "5 years", "2 years")
         val petDescriptions = arrayOf(
             "A fat cat who loves rails.",
             "Always high on catnip.",
-            "Ipad kid kitty.",
-            "The sausage likes to get its daily naps.",
+            "iPad kid kitty.",
+            "The sausage is so soft and warm.",
             "Protective mama but super sweet.",
             "Lurks in the corner, watching everything."
         )
@@ -58,7 +55,7 @@ class GalleryActivity : AppCompatActivity() {
         val adapter = GridAdapter(this, petTitles, petImages)
         gridView.adapter = adapter
 
-        // to full image + details
+        // redirect to full image + details
         gridView.setOnItemClickListener { parent, view, position, id ->
             val intent = Intent(this, ImageDetailActivity::class.java)
             intent.putExtra("name", petNames[position])
@@ -79,7 +76,7 @@ class GalleryActivity : AppCompatActivity() {
             editor.apply()
 
 
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             finish()

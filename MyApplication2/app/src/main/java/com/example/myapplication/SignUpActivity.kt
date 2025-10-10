@@ -92,6 +92,7 @@ class SignUpActivity : AppCompatActivity() {
                 editor.putString("email", email)
                 editor.putString("username", user)
                 editor.putString("password", pass)
+                editor.putBoolean("isLoggedIn", true)
                 editor.apply()
 
                 Toast.makeText(this, "Sign up successful", Toast.LENGTH_LONG).show()
@@ -101,7 +102,8 @@ class SignUpActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG
                 ).show()
 
-                val intent = Intent(this, LoginActivity::class.java)
+                val intent = Intent(this, LoadingActivity::class.java)
+                intent.putExtra("nextActivity", "Login")
                 startActivity(intent)
                 finish()
             }
@@ -110,7 +112,8 @@ class SignUpActivity : AppCompatActivity() {
         val loginLink = findViewById<TextView>(R.id.login_link)
 
         loginLink.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, LoadingActivity::class.java)
+            intent.putExtra("nextActivity", "Login")
             startActivity(intent)
         }
     }
