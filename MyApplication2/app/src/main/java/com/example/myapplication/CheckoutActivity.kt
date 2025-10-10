@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -32,16 +33,84 @@ class CheckoutActivity : AppCompatActivity() {
         val total = cartItems.sumOf { it.price * it.quantity }
         totalPriceText.text = "Total: ₱%.2f".format(total)
 
-        // Confirm purchase
+        // Payment Dialog
         confirmButton.setOnClickListener {
-            Toast.makeText(this, "Payment Confirmed! Thank you!", Toast.LENGTH_LONG).show()
-            CartManager.clearCart()
-            finish()
+            showPaymentDialog()
         }
 
         // Back button
         findViewById<ImageButton>(R.id.backButton).setOnClickListener {
             finish()
         }
+    }
+
+    //CustomTextBox to ask for payment
+    private fun showPaymentDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.activity_input_payment, null)
+        val dialog = android.app.AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(false)
+            .create()
+
+        val cartItems = CartManager.getCartItems()
+        val total = cartItems.sumOf { it.price * it.quantity }
+
+        val summaryText = dialogView.findViewById<TextView>(R.id.cartItemsSummary)
+        val totalText = dialogView.findViewById<TextView>(R.id.totalAmountText)
+        val paymentInput = dialogView.findViewById<EditText>(R.id.paymentInput)
+        val confirmBtn = dialogView.findViewById<Button>(R.id.btnConfirmPayment)
+
+        // Shows items in cart
+        val summary = StringBuilder()
+        for (item in cartItems) {
+            summary.append("• ${item.name} (${item.size}) x${item.quantity} - ₱%.2f\n".format(item.price * item.quantity))
+        }
+
+        summaryText.text = summary.toString()
+        totalText.text = "Total: ₱%.2f".format(total)
+
+        // Checks Payment Amount
+        confirmBtn.setOnClickListener {
+            val payment = paymentInput.text.toString().toDoubleOrNull()
+
+            if (payment == null) {
+                Toast.makeText(this, "Please enter a valid amount", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (payment < total) {
+                Toast.makeText(this, "Insufficient funds!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Calculate change and build receipt
+            val change = payment - total
+            val receipt = StringBuilder("✅ Payment Successful!\n\nItems Purchased:\n")
+            for (item in cartItems) {
+                receipt.append("• ${item.name} (${item.size}) x${item.quantity}\n")
+            }
+            receipt.append("\nTotal: ₱%.2f\nPaid: ₱%.2f\nChange: ₱%.2f".format(total, payment, change))
+
+            dialog.dismiss()
+
+            // Display receipt
+            val receiptDialog = android.app.AlertDialog.Builder(this)
+                .setTitle("Receipt")
+                .setMessage(receipt.toString())
+                .setCancelable(false)
+                .setPositiveButton("OK") { _, _ ->
+                    // Cart Clear, redirect back to menu
+                    CartManager.clearCart()
+                    val intent = Intent(this, MenuActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    finish()
+                }
+                .create()
+
+            receiptDialog.show()
+        }
+
+        dialog.show()
     }
 }

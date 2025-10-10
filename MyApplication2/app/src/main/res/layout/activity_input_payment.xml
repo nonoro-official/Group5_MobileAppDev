@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/paymentDialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm Payment"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:paddingBottom="12dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <TextView
+            android:id="@+id/cartItemsSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#444"/>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/totalAmountText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total: ₱0.00"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:paddingTop="10dp"/>
+
+    <EditText
+        android:id="@+id/paymentInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter payment amount"
+        android:inputType="numberDecimal"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:drawable/edit_text"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/btnConfirmPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pay"
+        android:backgroundTint="#8D77AB"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="15dp"/>
+</LinearLayout>
