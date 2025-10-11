@@ -12,7 +12,6 @@ object CartManager {
         }
     }
 
-
     fun getCartItems(): List<CartItem> {
         return cartItems
     }
@@ -24,4 +23,12 @@ object CartManager {
     fun clearCart() {
         cartItems.clear()
     }
+
+    fun removeFromCart(item: CartItem) {
+        val existingItem = cartItems.find { it.name == item.name && it.size == item.size }
+        if (existingItem != null) {
+            cartItems.remove(existingItem)
+        }
+    }
+
 }

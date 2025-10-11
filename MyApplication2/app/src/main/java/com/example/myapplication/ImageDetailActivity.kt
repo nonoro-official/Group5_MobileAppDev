@@ -32,7 +32,6 @@ class ImageDetailActivity : MainActivity() {
         detailDesc.text = desc
         detailImage.setImageResource(imageResId)
 
-        // Seek Bar
         val seekBar = findViewById<SeekBar>(R.id.seekBar)
 
         val petImages = intArrayOf(R.drawable.ming, R.drawable.dandan, R.drawable.ryan,
@@ -58,10 +57,8 @@ class ImageDetailActivity : MainActivity() {
             detailImage.setImageResource(petImages[index])
         }
 
-        // Initialize first pet
         updatePet(seekBar.progress)
 
-        // Update when SeekBar changes
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if (fromUser) updatePet(progress)

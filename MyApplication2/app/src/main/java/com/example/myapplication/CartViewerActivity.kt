@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,32 +19,36 @@ class CartViewerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart_viewer)
 
-        // Updated IDs to match your XML
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewCart)
         totalPriceText = findViewById(R.id.textTotal)
         checkoutButton = findViewById(R.id.btnCheckout)
 
-        // Get cart items
         val cartItems = CartManager.getCartItems().toMutableList()
 
-        // Setup RecyclerView
-        cartAdapter = CartAdapter(cartItems)
+        cartAdapter = CartAdapter(cartItems) {
+            updateTotal()
+        }
+
         recyclerView.adapter = cartAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Show total price
-        val total = cartItems.sumOf { it.price * it.quantity }
-        totalPriceText.text = "Total: ₱%.2f".format(total)
+        updateTotal()
 
-        // Enable or disable checkout button if cart is empty
-        checkoutButton.isEnabled = cartItems.isNotEmpty()
-
-        // Proceed to checkout
         checkoutButton.setOnClickListener {
             if (cartItems.isNotEmpty()) {
-                val intent = Intent(this, CheckoutActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, CheckoutActivity::class.java))
             }
         }
+
+        val backButton = findViewById<ImageButton>(R.id.backButton)
+        backButton.setOnClickListener { finish() }
     }
+
+    private fun updateTotal() {
+        val total = CartManager.getCartItems().sumOf { it.price * it.quantity }
+        totalPriceText.text = "Total: ₱%.2f".format(total)
+        checkoutButton.isEnabled = total > 0
+    }
+
+
 }

@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:fitsSystemWindows="true">
 
-    <!-- Toolbar stays at the top -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/detail_toolbar"
         android:layout_width="match_parent"
@@ -14,7 +13,6 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:elevation="4dp" />
 
-    <!-- Centered content area -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -23,7 +21,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Pet Image -->
         <ImageView
             android:id="@+id/detail_image"
             android:layout_width="match_parent"
@@ -32,7 +29,6 @@
             android:scaleType="fitCenter"
             android:contentDescription="Pet Image" />
 
-        <!-- Pet Name -->
         <TextView
             android:id="@+id/detail_name"
             android:layout_width="wrap_content"
@@ -42,7 +38,6 @@
             android:textStyle="bold"
             android:layout_marginTop="12dp" />
 
-        <!-- Pet Age -->
         <TextView
             android:id="@+id/detail_age"
             android:layout_width="wrap_content"
@@ -50,7 +45,6 @@
             android:text="Age: 0 years"
             android:layout_marginTop="4dp" />
 
-        <!-- Pet Description -->
         <TextView
             android:id="@+id/detail_desc"
             android:layout_width="wrap_content"

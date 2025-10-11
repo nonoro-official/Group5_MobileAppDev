@@ -11,7 +11,6 @@ open class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // Make status bar icons adjust automatically depending on dark/light mode
         val controller = WindowInsetsControllerCompat(window, window.decorView)
         controller.isAppearanceLightStatusBars =
             AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO

@@ -6,7 +6,6 @@
     android:background="#FFFFFF"
     android:padding="20dp">
 
-    <!-- Top Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +31,6 @@
             android:paddingEnd="40dp" />
     </LinearLayout>
 
-    <!-- Cart List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartRecyclerView"
         android:layout_width="match_parent"
@@ -42,7 +40,6 @@
         android:layout_marginBottom="10dp"
         android:scrollbars="vertical" />
 
-    <!-- Empty Cart Message -->
     <TextView
         android:id="@+id/emptyText"
         android:layout_width="match_parent"
@@ -53,7 +50,6 @@
         android:gravity="center"
         android:padding="10dp" />
 
-    <!-- Total and Checkout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
